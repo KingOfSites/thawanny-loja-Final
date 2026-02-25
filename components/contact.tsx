@@ -6,7 +6,6 @@ import { useLanguage } from "@/context/LanguageContext"
 const contactData = [
   { icon: MessageCircle, labelKey: "contact.whatsapp", value: "+47 466 77 874", href: "https://wa.me/4746677874" },
   { icon: Phone, labelKey: "contact.phone", value: "+47 466 77 874", href: "tel:+4746677874" },
-  { icon: Mail, labelKey: "contact.email", value: "contato@thawanny.com", href: "mailto:contato@thawanny.com" },
   { icon: Instagram, labelKey: "contact.instagram", value: "thawannyshisnayder_studio", href: "https://www.instagram.com/thawannyshisnayder_studio?igsh=MjA2d29sbmY0eXo5&utm_source=qr" },
   { icon: Mail, labelKey: "contact.email", value: "Thawannymurno@gmail.com", href: "mailto:Thawannymurno@gmail.com" },
 ]
