@@ -8,7 +8,7 @@ export function About() {
           {/* Image */}
           <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl shadow-xl">
             <Image
-              src="/images/about-thawanny.jpg"
+              src="/images/WhatsApp Image 2026-02-25 at 10.00.03.jpeg"
               alt="Thawanny, manicure profissional"
               fill
               className="object-cover"
@@ -32,34 +32,46 @@ export function About() {
               className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg"
               style={{ fontFamily: "var(--font-lato)" }}
             >
-              Thawanny é manicure profissional especializada em cuidados com unhas,
-              oferecendo atendimento personalizado, qualidade e delicadeza em cada detalhe.
+              Atendo no Karamel Salong, um espaço reconhecido pelo seu ambiente sofisticado, acolhedor e
+              profissional.
             </p>
             <p
               className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg"
               style={{ fontFamily: "var(--font-lato)" }}
             >
-              Com anos de experiência e paixão pelo que faz, cada atendimento é uma experiência
-              única de beleza e bem-estar. Utilizando produtos de alta qualidade e técnicas
-              atualizadas para garantir unhas perfeitas e duradouras.
+              O salão oferece uma atmosfera moderna e confortável, ideal para quem valoriza qualidade,
+              tranquilidade e alto padrão de atendimento.
+            </p>
+            <p
+              className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg"
+              style={{ fontFamily: "var(--font-lato)" }}
+            >
+              Ao escolher meus serviços, você também desfruta da estrutura e do ambiente cuidadosamente
+              preparados para proporcionar uma experiência completa e exclusiva.
             </p>
             <div className="mt-8 flex gap-8" style={{ fontFamily: "var(--font-lato)" }}>
               <div>
-                <p className="text-3xl font-bold text-raspberry">500+</p>
-                <p className="mt-1 text-xs tracking-wider uppercase text-muted-foreground">
-                  Clientes Atendidas
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
+                  Sofisticação
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Beleza com identidade
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-raspberry">5+</p>
-                <p className="mt-1 text-xs tracking-wider uppercase text-muted-foreground">
-                  Anos de Experiência
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
+                  Precisão
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Técnica de alto padrão
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-raspberry">100%</p>
-                <p className="mt-1 text-xs tracking-wider uppercase text-muted-foreground">
-                  Satisfação
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
+                  Exclusividade
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Experiência personalizada
                 </p>
               </div>
             </div>

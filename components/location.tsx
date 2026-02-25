@@ -30,16 +30,7 @@ export function Location() {
                   Endereço
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Rua das Flores, 123
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Centro
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  São Paulo - SP
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  CEP: 01000-000
+                  Strandgata 35, 9600 Hammerfest
                 </p>
               </div>
             </div>
@@ -47,14 +38,14 @@ export function Location() {
             <div className="mt-6" style={{ fontFamily: "var(--font-lato)" }}>
               <h4 className="text-sm font-medium text-foreground">Horário de Funcionamento</h4>
               <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-                <p>Segunda a Sexta: 09:00 - 19:00</p>
-                <p>Sábado: 09:00 - 16:00</p>
+                <p>Segunda a Sexta: 08:00 - 16:00</p>
+                <p>Sábado: 10:00 - 15:00</p>
                 <p>Domingo: Fechado</p>
               </div>
             </div>
 
             <a
-              href="https://maps.google.com"
+              href="https://share.google/Q0nFXwrz8IRMDNosM"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-block rounded-full bg-raspberry px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-raspberry-dark hover:shadow-md"
@@ -67,14 +58,14 @@ export function Location() {
           {/* Map placeholder */}
           <div className="aspect-square overflow-hidden rounded-2xl border border-border bg-ladies shadow-sm lg:aspect-video">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.6361!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzgnMTAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              src="https://www.google.com/maps?q=Strandgata+35,+9600+Hammerfest&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localização de Thawanny Manicure"
+              title="Localização de Thawanny Shisnayder Studio em Hammerfest"
             />
           </div>
         </div>

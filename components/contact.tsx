@@ -1,4 +1,4 @@
-import { Phone, Mail, MessageCircle, Instagram, Facebook } from "lucide-react"
+import { Phone, Mail, Instagram } from "lucide-react"
 
 const contacts = [
   {
@@ -19,20 +19,21 @@ const contacts = [
     value: "contato@thawanny.com",
     href: "mailto:contato@thawanny.com",
   },
-]
-
-const socials = [
   {
     icon: Instagram,
     label: "Instagram",
-    href: "https://instagram.com/thawanny",
+    value: "thawannyshisnayder_studio",
+    href: "https://www.instagram.com/thawannyshisnayder_studio?igsh=MjA2d29sbmY0eXo5&utm_source=qr",
   },
   {
-    icon: Facebook,
-    label: "Facebook",
-    href: "https://facebook.com/thawanny",
+    icon: Mail,
+    label: "E-mail",
+    value: "Thawannymurno@gmail.com",
+    href: "mailto:Thawannymurno@gmail.com",
   },
 ]
+
+const socials: [] = []
 
 export function Contact() {
   return (
@@ -79,21 +80,6 @@ export function Contact() {
           ))}
         </div>
 
-        {/* Social Links */}
-        <div className="mt-12 flex items-center justify-center gap-4">
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-all duration-300 hover:border-raspberry hover:bg-raspberry"
-              aria-label={social.label}
-            >
-              <social.icon className="h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-white" />
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   )

@@ -4,10 +4,12 @@ import { useState, useMemo } from "react"
 import { ChevronLeft, ChevronRight, Check } from "lucide-react"
 
 const serviceOptions = [
-  "Manicure Simples",
-  "Pedicure",
-  "Alongamento em Gel",
-  "Manutenção de Gel",
+  "Banho de Gel",
+  "Esmaltação em Gel",
+  "Alongamento em Gel S/M",
+  "Alongamento em Gel L/G",
+  "Manutenção Premium S/M",
+  "Manutenção Premium L/G",
 ]
 
 const timeSlots = [
