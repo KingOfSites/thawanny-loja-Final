@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
+import { LanguageSelector } from "@/components/LanguageSelector"
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Localização", href: "#localizacao" },
-  { label: "Contato", href: "#contato" },
-  { label: "Agendar Horário", href: "#agenda" },
-]
+const navKeys = [
+  { key: "nav.home", href: "#home" },
+  { key: "nav.about", href: "#sobre" },
+  { key: "nav.services", href: "#servicos" },
+  { key: "nav.location", href: "#localizacao" },
+  { key: "nav.contact", href: "#contato" },
+  { key: "nav.schedule", href: "#agenda" },
+] as const
 
 export function Header() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -43,30 +46,31 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-6 lg:flex" style={{ fontFamily: "var(--font-lato)" }}>
-          {navLinks.map((link) => (
+          {navKeys.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="text-sm font-light tracking-wide text-foreground/80 transition-colors duration-200 hover:text-raspberry"
             >
-              {link.label}
+              {t(link.key)}
             </a>
           ))}
         </nav>
 
-        {/* CTA + Mobile Toggle */}
+        {/* CTA + Language + Mobile Toggle */}
         <div className="flex items-center gap-3">
+          <LanguageSelector />
           <a
             href="#agenda"
             className="hidden rounded-full bg-raspberry px-6 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-raspberry-dark hover:shadow-lg sm:inline-block"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            Agendar Agora
+            {t("nav.scheduleNow")}
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-foreground lg:hidden"
-            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -80,14 +84,14 @@ export function Header() {
           style={{ fontFamily: "var(--font-lato)" }}
         >
           <div className="flex flex-col gap-1 px-4 py-4">
-            {navLinks.map((link) => (
+            {navKeys.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg px-4 py-3 text-sm font-light tracking-wide text-foreground/80 transition-colors hover:bg-ladies hover:text-raspberry"
               >
-                {link.label}
+                {t(link.key)}
               </a>
             ))}
             <a
@@ -95,7 +99,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-full bg-raspberry px-6 py-3 text-center text-sm font-medium text-white shadow-md transition-all hover:bg-raspberry-dark"
             >
-              Agendar Agora
+              {t("nav.scheduleNow")}
             </a>
           </div>
         </nav>

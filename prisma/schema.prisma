@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model StockItem {
+  id           Int      @id @default(autoincrement())
+  name         String
+  quantity     Int      @default(0)
+  minimumAlert Int      @default(5)
+  createdAt    DateTime @default(now())
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Appointment {
+  id          Int      @id @default(autoincrement())
+  clientName  String
+  clientPhone String
+  service     String?
+  dateStr     String   // YYYY-MM-DD
+  time        String   // HH:MM
+  createdAt   DateTime @default(now())
+}

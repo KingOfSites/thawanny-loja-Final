@@ -1,6 +1,10 @@
+"use client"
+
 import { MapPin } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Location() {
+  const { t } = useLanguage()
   return (
     <section id="localizacao" className="bg-aster py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -10,10 +14,10 @@ export function Location() {
             className="mb-3 text-xs tracking-[0.3em] uppercase text-raspberry"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            Localização
+            {t("location.badge")}
           </p>
           <h2 className="font-serif text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Onde me encontrar
+            {t("location.title")}
           </h2>
           <div className="mx-auto mt-3 h-px w-16 bg-raspberry/40" />
         </div>
@@ -27,20 +31,20 @@ export function Location() {
               </div>
               <div style={{ fontFamily: "var(--font-lato)" }}>
                 <h3 className="font-serif text-xl font-semibold text-foreground">
-                  Endereço
+                  {t("location.address")}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Strandgata 35, 9600 Hammerfest
+                  {t("location.addressValue")}
                 </p>
               </div>
             </div>
 
             <div className="mt-6" style={{ fontFamily: "var(--font-lato)" }}>
-              <h4 className="text-sm font-medium text-foreground">Horário de Funcionamento</h4>
+              <h4 className="text-sm font-medium text-foreground">{t("location.hoursTitle")}</h4>
               <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-                <p>Segunda a Sexta: 08:00 - 16:00</p>
-                <p>Sábado: 10:00 - 15:00</p>
-                <p>Domingo: Fechado</p>
+                <p>{t("location.hoursWeek")}</p>
+                <p>{t("location.hoursSat")}</p>
+                <p>{t("location.hoursSun")}</p>
               </div>
             </div>
 
@@ -51,7 +55,7 @@ export function Location() {
               className="mt-6 inline-block rounded-full bg-raspberry px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-raspberry-dark hover:shadow-md"
               style={{ fontFamily: "var(--font-lato)" }}
             >
-              Abrir no Google Maps
+              {t("location.openMaps")}
             </a>
           </div>
 
@@ -65,7 +69,7 @@ export function Location() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localização de Thawanny Shisnayder Studio em Hammerfest"
+              title={t("location.mapTitle")}
             />
           </div>
         </div>

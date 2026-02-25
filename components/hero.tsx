@@ -1,13 +1,17 @@
+"use client"
+
 import Image from "next/image"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Hero() {
+  const { t } = useLanguage()
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-aster">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero-nails.jpg"
-          alt="Unhas elegantes feitas por Thawanny"
+          alt={t("hero.altImage")}
           fill
           className="object-cover opacity-30"
           priority
@@ -21,31 +25,32 @@ export function Hero() {
           className="mb-4 text-sm tracking-[0.3em] uppercase text-raspberry"
           style={{ fontFamily: "var(--font-lato)" }}
         >
-          Manicure Profissional
+          {t("hero.badge")}
         </p>
         <h1 className="font-serif text-5xl font-bold leading-tight tracking-tight text-foreground text-balance md:text-7xl lg:text-8xl">
-          Thawanny Shisnayder Studio
+          {t("hero.title")}
         </h1>
         <div className="mx-auto mt-2 h-px w-24 bg-raspberry/40" />
         <p
           className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg"
           style={{ fontFamily: "var(--font-lato)" }}
         >
-          Cuidado, elegância e delicadeza em cada detalhe.
-          Suas unhas merecem o melhor.
+          {t("hero.tagline1")}
+          <br />
+          {t("hero.tagline2")}
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row" style={{ fontFamily: "var(--font-lato)" }}>
           <a
             href="#agenda"
             className="rounded-full bg-raspberry px-8 py-3.5 text-sm font-medium tracking-wide text-white shadow-lg transition-all duration-300 hover:bg-raspberry-dark hover:shadow-xl"
           >
-            Agendar Agora
+            {t("hero.scheduleNow")}
           </a>
           <a
             href="#servicos"
             className="rounded-full border border-foreground/20 bg-transparent px-8 py-3.5 text-sm font-medium tracking-wide text-foreground transition-all duration-300 hover:border-raspberry hover:text-raspberry"
           >
-            Ver Serviços
+            {t("hero.viewServices")}
           </a>
         </div>
       </div>

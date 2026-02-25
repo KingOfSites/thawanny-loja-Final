@@ -1,6 +1,10 @@
+"use client"
+
 import { Heart } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="border-t border-border bg-ladies-deep py-8">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -12,13 +16,13 @@ export function Footer() {
             className="flex items-center gap-1 text-sm text-muted-foreground"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            Feito com <Heart className="h-3.5 w-3.5 fill-raspberry text-raspberry" /> por Thawanny
+            {t("footer.madeWith")} <Heart className="h-3.5 w-3.5 fill-raspberry text-raspberry" /> {t("footer.by")}
           </p>
           <p
             className="text-xs text-muted-foreground"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            &copy; {new Date().getFullYear()} Thawanny Manicure. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Thawanny Manicure. {t("footer.rights")}
           </p>
         </div>
       </div>

@@ -1,41 +1,18 @@
-import { Phone, Mail, Instagram } from "lucide-react"
+"use client"
 
-const contacts = [
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "+47 999 99 999",
-    href: "https://wa.me/4799999999",
-  },
-  {
-    icon: Phone,
-    label: "Telefone",
-    value: "+47 999 99 999",
-    href: "tel:+4799999999",
-  },
-  {
-    icon: Mail,
-    label: "E-mail",
-    value: "contato@thawanny.com",
-    href: "mailto:contato@thawanny.com",
-  },
-  {
-    icon: Instagram,
-    label: "Instagram",
-    value: "thawannyshisnayder_studio",
-    href: "https://www.instagram.com/thawannyshisnayder_studio?igsh=MjA2d29sbmY0eXo5&utm_source=qr",
-  },
-  {
-    icon: Mail,
-    label: "E-mail",
-    value: "Thawannymurno@gmail.com",
-    href: "mailto:Thawannymurno@gmail.com",
-  },
+import { Phone, Mail, MessageCircle, Instagram } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
+
+const contactData = [
+  { icon: MessageCircle, labelKey: "contact.whatsapp", value: "+47 466 77 874", href: "https://wa.me/4746677874" },
+  { icon: Phone, labelKey: "contact.phone", value: "+47 466 77 874", href: "tel:+4746677874" },
+  { icon: Mail, labelKey: "contact.email", value: "contato@thawanny.com", href: "mailto:contato@thawanny.com" },
+  { icon: Instagram, labelKey: "contact.instagram", value: "thawannyshisnayder_studio", href: "https://www.instagram.com/thawannyshisnayder_studio?igsh=MjA2d29sbmY0eXo5&utm_source=qr" },
+  { icon: Mail, labelKey: "contact.email", value: "Thawannymurno@gmail.com", href: "mailto:Thawannymurno@gmail.com" },
 ]
 
-const socials: [] = []
-
 export function Contact() {
+  const { t } = useLanguage()
   return (
     <section id="contato" className="bg-ladies py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -45,18 +22,18 @@ export function Contact() {
             className="mb-3 text-xs tracking-[0.3em] uppercase text-raspberry"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            Fale Comigo
+            {t("contact.badge")}
           </p>
           <h2 className="font-serif text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Contato
+            {t("contact.title")}
           </h2>
           <div className="mx-auto mt-3 h-px w-16 bg-raspberry/40" />
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          {contacts.map((item) => (
+          {contactData.map((item) => (
             <a
-              key={item.label}
+              key={`${item.labelKey}-${item.value}`}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -68,7 +45,7 @@ export function Contact() {
               <h3
                 className="mt-4 font-serif text-lg font-semibold text-foreground"
               >
-                {item.label}
+                {t(item.labelKey)}
               </h3>
               <p
                 className="mt-1 text-sm text-muted-foreground"
