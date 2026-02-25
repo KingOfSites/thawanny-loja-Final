@@ -285,7 +285,7 @@ export function Booking() {
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="(11) 99999-9999"
+                  placeholder="+47 999 99 999"
                   className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-raspberry focus:outline-none focus:ring-1 focus:ring-raspberry"
                 />
               </div>

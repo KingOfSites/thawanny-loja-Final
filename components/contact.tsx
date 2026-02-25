@@ -4,14 +4,14 @@ const contacts = [
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "(11) 99999-9999",
-    href: "https://wa.me/5511999999999",
+    value: "+47 999 99 999",
+    href: "https://wa.me/4799999999",
   },
   {
     icon: Phone,
     label: "Telefone",
-    value: "(11) 99999-9999",
-    href: "tel:+5511999999999",
+    value: "+47 999 99 999",
+    href: "tel:+4799999999",
   },
   {
     icon: Mail,
