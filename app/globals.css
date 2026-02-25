@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Aster - soft lavender base */
+  --background: #f5f0f6;
+  --foreground: #2d1a33;
+  /* Ladies - blush pink secondary */
+  --card: #fdf2f4;
+  --card-foreground: #2d1a33;
+  --popover: #fdf2f4;
+  --popover-foreground: #2d1a33;
+  /* Raspberry - deep pink accent */
+  --primary: #c2185b;
+  --primary-foreground: #fff;
+  /* Ladies for secondary */
+  --secondary: #fce4ec;
+  --secondary-foreground: #2d1a33;
+  --muted: #f0e6f0;
+  --muted-foreground: #6b5070;
+  --accent: #fce4ec;
+  --accent-foreground: #2d1a33;
+  --destructive: #d32f2f;
+  --destructive-foreground: #fff;
+  --border: #e8d5e8;
+  --input: #e8d5e8;
+  --ring: #c2185b;
+  --chart-1: #c2185b;
+  --chart-2: #e91e63;
+  --chart-3: #f06292;
+  --chart-4: #f8bbd0;
+  --chart-5: #fce4ec;
+  --radius: 0.75rem;
+
+  /* Custom tokens */
+  --aster: #f5f0f6;
+  --aster-deep: #e8dcea;
+  --ladies: #fdf2f4;
+  --ladies-deep: #fce4ec;
+  --raspberry: #c2185b;
+  --raspberry-light: #e91e63;
+  --raspberry-dark: #ad1457;
+}
+
+@theme inline {
+  --font-sans: 'Playfair Display', 'Georgia', serif;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-aster: var(--aster);
+  --color-aster-deep: var(--aster-deep);
+  --color-ladies: var(--ladies);
+  --color-ladies-deep: var(--ladies-deep);
+  --color-raspberry: var(--raspberry);
+  --color-raspberry-light: var(--raspberry-light);
+  --color-raspberry-dark: var(--raspberry-dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
