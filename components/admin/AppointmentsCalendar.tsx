@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { CalendarDays, ChevronLeft, ChevronRight, Phone } from "lucide-react"
+import { CalendarDays, ChevronLeft, ChevronRight, Phone, Trash2 } from "lucide-react"
 
 type Appointment = {
   id: number
@@ -33,15 +33,20 @@ export function AppointmentsCalendar() {
   const [currentYear, setCurrentYear] = useState(today.getFullYear())
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(false)
+  const [deletingId, setDeletingId] = useState<number | null>(null)
+
+  const fetchAppointments = () => {
+    setLoading(true)
+    fetch(`/api/appointments?month=${monthKey}`)
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => setAppointments(Array.isArray(data) ? data : []))
+      .finally(() => setLoading(false))
+  }
 
   const monthKey = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}`
 
   useEffect(() => {
-    setLoading(true)
-    fetch(`/api/appointments?month=${monthKey}`)
-      .then((res) => res.ok ? res.json() : [])
-      .then((data) => setAppointments(Array.isArray(data) ? data : []))
-      .finally(() => setLoading(false))
+    fetchAppointments()
   }, [monthKey])
 
   const daysInMonth = getDaysInMonth(currentYear, currentMonth)
@@ -70,6 +75,14 @@ export function AppointmentsCalendar() {
   const formatDateBr = (dateStr: string) => {
     const [y, m, d] = dateStr.split("-")
     return `${d}/${m}/${y}`
+  }
+
+  const handleDelete = async (id: number) => {
+    if (!confirm("Excluir este agendamento?")) return
+    setDeletingId(id)
+    const res = await fetch(`/api/appointments/${id}`, { method: "DELETE" })
+    setDeletingId(null)
+    if (res.ok) fetchAppointments()
   }
 
   return (
@@ -147,7 +160,7 @@ export function AppointmentsCalendar() {
               {appointments.map((apt) => (
                 <li
                   key={apt.id}
-                  className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg border border-gray-100 bg-gray-50/80 px-4 py-3 text-sm"
+                  className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-gray-100 bg-gray-50/80 px-4 py-3 text-sm"
                 >
                   <span className="font-semibold text-gray-800">
                     {formatDateBr(apt.dateStr)} às {apt.time}
@@ -162,6 +175,15 @@ export function AppointmentsCalendar() {
                   {apt.service && (
                     <span className="text-pink-600 truncate">{apt.service}</span>
                   )}
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(apt.id)}
+                    disabled={deletingId === apt.id}
+                    className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-red-200 text-red-600 hover:bg-red-50 disabled:opacity-50"
+                    title="Excluir agendamento"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
                 </li>
               ))}
             </ul>

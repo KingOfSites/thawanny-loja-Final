@@ -17,6 +17,7 @@ export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false)
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const [loginLoading, setLoginLoading] = useState(false)
   const [items, setItems] = useState<StockItem[]>([])
   const [loading, setLoading] = useState(false)
   const [formName, setFormName] = useState("")
@@ -40,17 +41,22 @@ export default function AdminPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
-    const res = await fetch("/api/admin/verify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    })
-    const data = await res.json()
-    if (res.ok && data.ok) {
-      setAuthenticated(true)
-      setPassword("")
-    } else {
-      setError("Acesso negado")
+    setLoginLoading(true)
+    try {
+      const res = await fetch("/api/admin/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      })
+      const data = await res.json()
+      if (res.ok && data.ok) {
+        setAuthenticated(true)
+        setPassword("")
+      } else {
+        setError("Acesso negado")
+      }
+    } finally {
+      setLoginLoading(false)
     }
   }
 
@@ -133,9 +139,17 @@ export default function AdminPage() {
             )}
             <button
               type="submit"
-              className="w-full rounded-lg bg-gray-800 py-3 text-sm font-medium text-white hover:bg-gray-700 transition-colors"
+              disabled={loginLoading}
+              className="w-full rounded-lg bg-gray-800 py-3 text-sm font-medium text-white hover:bg-gray-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Entrar
+              {loginLoading ? (
+                <>
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  Carregando...
+                </>
+              ) : (
+                "Entrar"
+              )}
             </button>
           </form>
         </div>
