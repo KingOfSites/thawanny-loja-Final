@@ -3,23 +3,27 @@ import { Sparkles, Heart, Shield, Star } from "lucide-react"
 const specialties = [
   {
     icon: Sparkles,
-    title: "Alongamento em Gel",
-    description: "Unhas perfeitas com acabamento impecável e longa duração.",
+    title: "Relaxamento Absoluto",
+    description:
+      "Durante o procedimento, você desfruta de uma sofisticada máquina de massagem para os pés, proporcionando relaxamento profundo enquanto suas unhas são cuidadosamente transformadas. Um momento pensado para desacelerar e aproveitar.",
   },
   {
     icon: Heart,
-    title: "Cuidado Personalizado",
-    description: "Cada cliente recebe atenção especial e tratamento único.",
+    title: "Ritual Pós-Alongamento",
+    description:
+      "Após o serviço de alongamento, proporcionamos um cuidado especial com esfoliação suave das mãos seguida de hidratação nutritiva, deixando a pele macia, renovada e delicadamente perfumada.",
   },
   {
     icon: Shield,
-    title: "Higiene e Segurança",
-    description: "Materiais esterilizados e produtos de alta qualidade.",
+    title: "Tecnologia de Impressão Digital de Alta Precisão",
+    description:
+      "Nosso espaço conta com tecnologia avançada de impressão digital para unhas, capaz de reproduzir praticamente qualquer arte com definição impecável e riqueza de detalhes. Do minimalismo elegante às criações mais elaboradas, as possibilidades são ilimitadas.",
   },
   {
     icon: Star,
-    title: "Nail Art",
-    description: "Designs exclusivos e tendências para expressar sua personalidade.",
+    title: "Exclusividade que Vai Além do Atendimento",
+    description:
+      "Cada cliente recebe um mini kit de pós-cuidados, cuidadosamente selecionado para manter a beleza e durabilidade das unhas em casa. Porque o luxo continua mesmo após sair do nosso espaço.",
   },
 ]
 
@@ -36,15 +40,14 @@ export function Specialties() {
             Especialidades
           </p>
           <h2 className="font-serif text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Especialista em
+            Uma Experiência de luxo Conforto e Tecnologia
           </h2>
           <div className="mx-auto mt-3 h-px w-16 bg-raspberry/40" />
           <p
             className="mt-6 text-base leading-relaxed text-muted-foreground"
             style={{ fontFamily: "var(--font-lato)" }}
           >
-            Atendimento completo para unhas, sempre prezando pela beleza,
-            higiene e satisfação de cada cliente.
+            Mais do que um atendimento, oferecemos um ritual exclusivo de beleza e bem-estar.
           </p>
         </div>
 

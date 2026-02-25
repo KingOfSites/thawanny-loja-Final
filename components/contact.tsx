@@ -1,38 +1,27 @@
-import { Phone, Mail, MessageCircle, Instagram, Facebook } from "lucide-react"
+import { Phone, Mail, Instagram } from "lucide-react"
 
 const contacts = [
   {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "(11) 99999-9999",
-    href: "https://wa.me/5511999999999",
-  },
-  {
     icon: Phone,
     label: "Telefone",
-    value: "(11) 99999-9999",
-    href: "tel:+5511999999999",
+    value: "(47) 965 12 205",
+    href: "tel:+47496512205",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "thawannyshisnayder_studio",
+    href: "https://www.instagram.com/thawannyshisnayder_studio?igsh=MjA2d29sbmY0eXo5&utm_source=qr",
   },
   {
     icon: Mail,
     label: "E-mail",
-    value: "contato@thawanny.com",
-    href: "mailto:contato@thawanny.com",
+    value: "Thawannymurno@gmail.com",
+    href: "mailto:Thawannymurno@gmail.com",
   },
 ]
 
-const socials = [
-  {
-    icon: Instagram,
-    label: "Instagram",
-    href: "https://instagram.com/thawanny",
-  },
-  {
-    icon: Facebook,
-    label: "Facebook",
-    href: "https://facebook.com/thawanny",
-  },
-]
+const socials: [] = []
 
 export function Contact() {
   return (
@@ -79,21 +68,6 @@ export function Contact() {
           ))}
         </div>
 
-        {/* Social Links */}
-        <div className="mt-12 flex items-center justify-center gap-4">
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card transition-all duration-300 hover:border-raspberry hover:bg-raspberry"
-              aria-label={social.label}
-            >
-              <social.icon className="h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-white" />
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   )

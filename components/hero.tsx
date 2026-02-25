@@ -24,7 +24,7 @@ export function Hero() {
           Manicure Profissional
         </p>
         <h1 className="font-serif text-5xl font-bold leading-tight tracking-tight text-foreground text-balance md:text-7xl lg:text-8xl">
-          Thawanny
+          Thawanny Shisnayder Studio
         </h1>
         <div className="mx-auto mt-2 h-px w-24 bg-raspberry/40" />
         <p
